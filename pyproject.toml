@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "neural-mass-sim"
+version = "0.1.0"
+description = "Neural Mass Model simulation using PyRates"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+
+packages = [
+    { include = "neural_mass_sim" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyrates = "1.0.9"
+numpy = "^1.26.0"
+pandas = "^2.2.0"
+matplotlib = "^3.8.0"
+scipy = "^1.13.0"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+ipykernel = "^6.29.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
