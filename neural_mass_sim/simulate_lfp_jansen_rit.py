@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Jansen–Rit (PyRates) synthetic LFP with interictal spikes and a SINGLE clear ictal epoch.
+Jansen-Rit (PyRates) synthetic LFP with interictal spikes and a SINGLE clear ictal epoch.
 
 NO FILTERING. The script:
 - keeps the raw signal,
@@ -21,10 +21,8 @@ import matplotlib.pyplot as plt
 from scipy.signal import welch
 from pyrates import integrate
 
-# --------------------- noise & pulse utilities ---------------------
-
 def ou_noise(T, dt, mu=120.0, tau=0.05, sigma=25.0, seed=7):
-    """Ornstein–Uhlenbeck process (pulses/s), non-negative."""
+    """Ornstein-Uhlenbeck process (pulses/s), non-negative."""
     rng = np.random.default_rng(seed)
     n = int(np.round(T / dt))
     x = np.empty(n); x[0] = mu
@@ -40,8 +38,6 @@ def alpha_pulse_kernel(dt, tau=0.010, length=0.100):
     h = (t / tau) * np.exp(1.0 - t / tau)
     m = np.max(h)
     return h / m if m > 0 else h
-
-# --------------------- extrinsic drives ---------------------
 
 def make_interictal_p(T, dt, *, mu=150.0, sigma=30.0,
                       lam_per_min=10.0, pulse_amp=800.0, tau=0.010, seed=7):
